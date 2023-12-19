@@ -1,0 +1,41 @@
+<h1>Recipe Details</h1>
+<%= javascript_include_tag 'application' %>
+
+<div class="large-recipe-container">
+  <div class="card d-flex mb-3" style=" width: 60%">
+    <div class="d-flex justify-content-center">
+      <% if @recipe.photo.attached? %>
+        <%= image_tag url_for(@recipe.photo), class: "card-image-detail rounded", alt: "Recipe image" %>
+      <% else %>
+        <img src="https://static.toiimg.com/thumb/78028918.cms?width=680&height=512&imgsize=2041089"
+            class="card-image-detail rounded" alt="Default recipe image">
+      <% end %>
+    </div>
+    <div class="card-body">
+      <h2 class="fs-1 card-title"><%= @recipe.name %></h2>
+       <p class="d-flex justify-content-center">
+        <span class="badge-<%= @recipe.difficulty %>"><%= "#{@recipe.difficulty}" %></span>
+      </p>
+      <p class="d-flex justify-content-center"><%= @recipe.description %></p>
+      <% if @youtube_video %>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @youtube_video %>" frameborder="0" allowfullscreen></iframe>
+      <% else %>
+        <p>Відео не знайдено</p>
+      <% end %>
+      <br>
+      <% if @favorited_recipe.present? %>
+        <%= button_to "Un-favorite Recipe", unfavorite_recipe_path(@recipe.id), class: "btn btn-success" %>
+      <% else %>
+        <%= button_to "Favorite This Recipe", favorite_recipe_path(@recipe.id), class: "btn btn-secondary" %>
+      <% end %>
+      <br>
+        <% if @current_user&.id == @recipe.author_id %>
+          <%= link_to "Edit Recipe", edit_recipe_path(@recipe.id), class: "btn btn-primary" %>
+          <%= link_to "Delete Recipe", recipe_path(@recipe), class: "btn btn-danger", data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+        <% end %>
+    </div>
+  </div>
+</div>

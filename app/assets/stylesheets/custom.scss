@@ -1,0 +1,283 @@
+@import "bootstrap";
+
+/* THESE ARE MY CURRENT HEXCODE PICKS
+
+INDIGO #366775
+GRAY-BLUE #A2B4C0
+BLUSH #F7D0CB
+PINKISH PEACH #F7B3A0
+WARM PEACH #F4AC94
+SOFT BURNT ORANGE #D66D50
+
+*/
+
+/* universal */
+
+body {
+  padding-top: 30px;
+  background-color: #e8e8e9;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* NAV */
+.navbar {
+  background-color: gray;
+}
+.navbar-nav > li {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: right;
+}
+
+.navbar-nav > li > a {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(17, 17, 17);
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  color: rgb(17, 17, 17);
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #366775;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 0.8em;
+  letter-spacing: normal;
+  margin-bottom: 20px;
+  text-align: center;
+  font: caption;
+  color: #0e3013;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* HOME PAGE SPECIFIC */
+.mask {
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  text-align: center;
+  background-color: rgba(
+    225,
+    225,
+    225,
+    0.6
+  ); /* 0.5 is the alpha value, representing 50% opacity */
+}
+
+// /* recipe cards */
+
+.card-deck {
+  display: inline-block;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.card-deck .card-image-detail {
+  width: 537px;
+  height: 400px; // You can set to another value that suits your design
+  object-fit: cover; // This will cover the area without distorting the aspect ratio
+}
+
+/* custom difficulty chips */
+
+.badge-beginner {
+  background-color: #A2B4C0;
+  color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.badge-intermediate {
+  background-color: #F7B3A0;
+  color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.badge-advanced {
+  background-color: #F4AC94;
+  color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.badge-expert {
+  background-color: #D66D50;
+  color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* Dashboard favorite recipe cards */
+
+.carousel-card {
+  margin: 2px 0.5em;
+  border: none;
+  border-radius: 0;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  width: calc(100% / 3);
+  border-radius: 30px;
+}
+
+.cards-wrapper {
+  display: flex;
+}
+
+.image-wrapper {
+  height: 22vw;
+  margin: 0 auto;
+}
+
+.image-wrapper img {
+  width: 225px; /* Adjust as necessary */
+  height: 225px; /* Adjust as necessary */
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto; /* Center the image */
+}
+
+/* Carousel styling */
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+//rename this
+.my-3-inner {
+  background-color: #e8e8e9;
+  text-align: center;
+}
+//rename this
+.card-body-dash {
+  background-color: rgb(186, 185, 185);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.carousel-card-body{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+// This is for the full recipe view
+.large-recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  border-radius: 20px;
+}
+.large-recipe-container .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.large-recipe-container .btn-primary {
+  margin: 5px;
+}
+
+.large-recipe-container .card-image-detail {
+  border-radius: 20px; /* Adjust as necessary to get the desired roundness */
+  aspect-ratio: 16/9; /* Adjust as necessary to get the desired aspect ratio */
+  width: 100%; /* This will make the image take up the full width of its container */
+  object-fit: cover;
+}
+
+//for smaller recipe cards
+.card img.card-img-top {
+  width: 225px; /* Adjust as necessary */
+  height: 225px; /* Adjust as necessary */
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto; /* Center the image */
+}
+.small-recipe-card {
+  border-radius: 30px;
+}
+.btn-primary {
+  background-color: #366775 !important;
+  color: white;
+}
+
+//liked recipe btn
+.btn-success {
+  background-color: #F4AC94 !important;
+  color: white;
+}
+//unliked recipe btn
+.btn-secondary {
+  background-color: #D66D50;
+  color: white;
+}
+//delete button
+.btn-danger {
+  background-color: #D66D50;
+  color: white;
+}
+
+.title_name {
+  color: rgb(17, 17, 17);
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+
+.title_name:hover {
+  color:rgb(183, 196, 207);
+}

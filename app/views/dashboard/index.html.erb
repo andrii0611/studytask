@@ -1,0 +1,82 @@
+<h1>Welcome, <%= @current_user.name %>!</h1>
+
+<h2>Here are some of your favorite recipes:</h2>
+
+<div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="cards-wrapper">
+        <% @favorite_recipes.sample(3).each do |recipe| %>
+          <div class="card carousel-card" style="">
+            <div class="image-wrapper">
+              <% if recipe.photo.attached? %>
+                <%= image_tag recipe.photo, alt: recipe.name %>
+              <% else %>
+                <%= image_tag "https://static.toiimg.com/thumb/78028918.cms?width=680&height=512&imgsize=2041089", alt: recipe.name %>
+              <% end %>
+            </div>
+            <div class="carousel-card-body">
+              <h5 class="card-title"><%= recipe.name %></h5>
+              <p class="card-text"><%= recipe.description %></p>
+              <%= link_to "See Recipe", recipe_path(id: recipe.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+      <% @favorite_recipes.sample(3).each do |recipe| %>
+        <div class="card carousel-card" style="">
+          <div class="image-wrapper">
+            <% if recipe.photo.attached? %>
+                <%= image_tag recipe.photo, alt: recipe.name %>
+              <% else %>
+                <%= image_tag "https://static.toiimg.com/thumb/78028918.cms?width=680&height=512&imgsize=2041089", alt: recipe.name %>
+              <% end %>
+          </div>
+          <div class="carousel-card-body">
+            <h5 class="card-title"><%= recipe.name %></h5>
+            <p class="card-text"><%= recipe.description %></p>
+            <%= link_to "See Recipe", recipe_path(id: recipe.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+<h1>Here are some things you can do.</h1>
+<div class="card shadow">
+  <div class="card-body-dash">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card my-3-inner">
+          <div class="card-body">
+            <% if @current_user %>
+              <%= link_to "Add Your Recipe", new_recipe_path, class: "btn btn-outline-secondary btn-lg"%>
+            <% else %>
+              <%= link_to "Add Your Recipe", new_session_path, class: "btn btn-outline-secondary btn-lg"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card my-3-inner">
+          <div class="card-body">
+            <%= link_to "View All Recipes", recipes_path, class: "btn btn-outline-secondary btn-lg"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
